@@ -1,0 +1,40 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "it.intesys.academy"
+    },
+    "jhipsterVersion": "6.8.0",
+    "applicationType": "monolith",
+    "baseName": "HipsterAcademy",
+    "packageName": "it.intesys.academy",
+    "packageFolder": "it/intesys/academy",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": true,
+    "jwtSecretKey": "NGZiYThmMjFkYjFiMmMwYjcxOGNjZmRmNGEzOTg0MWNmZThiZmI1MjQyZTk5YTY4MjBkYmExZjJjNTJiNTI4MTdhYzAxOWM2ZmI5NTkzM2I3YWMzZjgwOTFiMDM2MGFiZTQyNTM4MmUyOTk0MjM4MWUxZmE3OTg3ODViNGFkYjk=",
+    "embeddableLaunchScript": false,
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "angularX",
+    "clientTheme": "none",
+    "clientThemeVariant": "",
+    "creationTimestamp": 1586187734897,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": false,
+    "blueprints": []
+  }
+}
