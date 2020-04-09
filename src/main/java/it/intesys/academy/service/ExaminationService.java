@@ -74,7 +74,7 @@ public class ExaminationService {
     @Transactional(readOnly = true)
     public Page<ExaminationDTO> findAll(Pageable pageable) {
         log.debug("Request to get all Examinations");
-        return examinationRepository.findAll(pageable)
+        return examinationRepository.findByUserIsCurrentUser(pageable)
             .map(examinationMapper::toDto);
     }
 
