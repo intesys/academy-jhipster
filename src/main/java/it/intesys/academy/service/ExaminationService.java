@@ -48,9 +48,9 @@ public class ExaminationService {
         log.debug("Request to save Examination : {}", examinationDTO);
         Examination examination = examinationMapper.toEntity(examinationDTO);
 
-        String login = SecurityUtils.getCurrentUserLogin().get();
-        User user = userRepository.findOneByLogin(login).get();
-        examination.setUser(user);
+        SecurityUtils.getCurrentUserLogin()
+            .flatMap(userRepository::findOneByLogin)
+            .ifPresent(examination::setUser);
 
         examination = examinationRepository.save(examination);
         return examinationMapper.toDto(examination);
