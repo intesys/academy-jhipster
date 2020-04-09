@@ -30,9 +30,12 @@ public class ExaminationService {
 
     private final ExaminationMapper examinationMapper;
 
-    public ExaminationService(ExaminationRepository examinationRepository, ExaminationMapper examinationMapper) {
+    private final UserRepository userRepository;
+
+    public ExaminationService(ExaminationRepository examinationRepository, ExaminationMapper examinationMapper, UserRepository userRepository) {
         this.examinationRepository = examinationRepository;
         this.examinationMapper = examinationMapper;
+        this.userRepository = userRepository;
     }
 
     /**
@@ -44,6 +47,11 @@ public class ExaminationService {
     public ExaminationDTO save(ExaminationDTO examinationDTO) {
         log.debug("Request to save Examination : {}", examinationDTO);
         Examination examination = examinationMapper.toEntity(examinationDTO);
+
+        String login = SecurityUtils.getCurrentUserLogin().get();
+        User user = userRepository.findOneByLogin(login).get();
+        examination.setUser(user);
+
         examination = examinationRepository.save(examination);
         return examinationMapper.toDto(examination);
     }
