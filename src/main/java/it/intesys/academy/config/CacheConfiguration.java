@@ -42,6 +42,9 @@ public class CacheConfiguration {
             createCache(cm, it.intesys.academy.domain.User.class.getName());
             createCache(cm, it.intesys.academy.domain.Authority.class.getName());
             createCache(cm, it.intesys.academy.domain.User.class.getName() + ".authorities");
+            createCache(cm, it.intesys.academy.domain.Patient.class.getName());
+            createCache(cm, it.intesys.academy.domain.Patient.class.getName() + ".examinations");
+            createCache(cm, it.intesys.academy.domain.Examination.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

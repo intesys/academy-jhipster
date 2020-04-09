@@ -1,0 +1,64 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="examination">
+            <h2><span>Examination</span> {{ examination.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>Weight</span></dt>
+                <dd>
+                    <span>{{ examination.weight }}</span>
+                </dd>
+                <dt><span>Height</span></dt>
+                <dd>
+                    <span>{{ examination.height }}</span>
+                </dd>
+                <dt><span>Diastolic Pressure</span></dt>
+                <dd>
+                    <span>{{ examination.diastolicPressure }}</span>
+                </dd>
+                <dt><span>Systolic Pressure</span></dt>
+                <dd>
+                    <span>{{ examination.systolicPressure }}</span>
+                </dd>
+                <dt><span>Examination Date</span></dt>
+                <dd>
+                    <span>{{ examination.examinationDate }}</span>
+                </dd>
+                <dt><span>Last Modified Date</span></dt>
+                <dd>
+                    <span>{{ examination.lastModifiedDate }}</span>
+                </dd>
+                <dt><span>Created Date</span></dt>
+                <dd>
+                    <span>{{ examination.createdDate }}</span>
+                </dd>
+                <dt><span>User</span></dt>
+                <dd>
+                    {{ examination.userUserName }}
+                </dd>
+                <dt><span>Patient</span></dt>
+                <dd>
+                    <div *ngIf="examination.patientId">
+                        <a [routerLink]="['/patient', examination.patientId, 'view']">{{ examination.patientLastName }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/examination', examination.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
