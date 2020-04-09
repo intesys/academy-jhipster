@@ -15,6 +15,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.ZonedDateTime;
 import java.util.Optional;
 
 /**
@@ -51,6 +52,14 @@ public class ExaminationService {
         SecurityUtils.getCurrentUserLogin()
             .flatMap(userRepository::findOneByLogin)
             .ifPresent(examination::setUser);
+
+        if (examination.getId() == null) {
+            //new examination
+            examination.setCreatedDate(ZonedDateTime.now());
+        }
+
+        examination.setExaminationDate(ZonedDateTime.now());
+        examination.setLastModifiedDate(ZonedDateTime.now());
 
         examination = examinationRepository.save(examination);
         return examinationMapper.toDto(examination);

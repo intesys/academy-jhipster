@@ -12,6 +12,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.ZonedDateTime;
 import java.util.Optional;
 
 /**
@@ -41,6 +42,12 @@ public class PatientService {
     public PatientDTO save(PatientDTO patientDTO) {
         log.debug("Request to save Patient : {}", patientDTO);
         Patient patient = patientMapper.toEntity(patientDTO);
+        if (patient.getId() == null) {
+            patient.setCreatedDate(ZonedDateTime.now());
+        }
+
+        patient.setLastModifiedDate(ZonedDateTime.now());
+
         patient = patientRepository.save(patient);
         return patientMapper.toDto(patient);
     }
