@@ -156,6 +156,10 @@ jhipster:
     contact-email:
     license:
     license-url:
+
+openapi:
+  hipster-academy:
+    base-path: /api/v1/
 # ===================================================================
 # Application specific properties
 # Add your own application properties here, see the ApplicationProperties class

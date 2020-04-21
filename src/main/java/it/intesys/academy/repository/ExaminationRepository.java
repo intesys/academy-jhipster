@@ -21,4 +21,6 @@ public interface ExaminationRepository extends JpaRepository<Examination, Long> 
 
     @Query("select examination from Examination examination where examination.user.login = ?#{principal.username}")
     Page<Examination> findByUserIsCurrentUser(Pageable pageable);
+
+    List<Examination> findAllByPatientId(Long patientId);
 }
