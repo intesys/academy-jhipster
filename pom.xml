@@ -846,11 +846,13 @@
                                 <apiPackage>it.intesys.academy.web.api</apiPackage>
                                 <modelPackage>it.intesys.academy.web.api.model</modelPackage>
                                 <supportingFilesToGenerate>ApiUtil.java</supportingFilesToGenerate>
+                                <modelNameSuffix>ApiDTO</modelNameSuffix>
                                 <importMappings>Problem=org.zalando.problem.Problem</importMappings>
                                 <skipValidateSpec>false</skipValidateSpec>
                                 <configOptions>
                                     <delegatePattern>true</delegatePattern>
                                     <title>hipster-academy</title>
+                                    <useTags>true</useTags>
                                 </configOptions>
                             </configuration>
                         </execution>
